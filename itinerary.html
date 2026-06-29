@@ -77,8 +77,7 @@
         <span>→</span>
         <span class="s"><span class="dot" style="background:#f0a070;"></span>D10-D14 亚美尼亚</span>
       </div>
-      <div class="mapc" style="max-height:420px;">
-<svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="background:#f7f3ea;">
+      <div class="mapc" style="max-height:420px;"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="background:#f7f3ea;">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
       <circle cx="10" cy="10" r="1" fill="#e0d8cc" opacity=".25"/>
@@ -93,246 +92,289 @@
       <stop offset="0%" stop-color="#d4e8f0" stop-opacity=".5"/>
       <stop offset="100%" stop-color="#c0dce8" stop-opacity=".35"/>
     </linearGradient>
-    <linearGradient id="g-land" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f5efdf" stop-opacity=".7"/>
-      <stop offset="100%" stop-color="#ede7d0" stop-opacity=".5"/>
+    <linearGradient id="g-georgia" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ec8a0" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#5a9e7a" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="g-armenia" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0a070" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#d08050" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="g-azer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#70b8d0" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#5098b0" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="g-route" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5a7a6a" stop-opacity=".65"/>
+      <stop offset="100%" stop-color="#4a6a5a" stop-opacity=".75"/>
     </linearGradient>
   </defs>
 
   <rect width="700" height="520" fill="#f7f3ea"/>
   <rect width="700" height="520" fill="url(#grid)"/>
 
-  <!-- 海域 -->
+  <!-- Country background zones -->
+  <path d="M 50 100 Q 210 40 360 55 Q 430 75 520 60 L 520 180 L 440 200 L 320 250 L 220 265 L 140 220 Z" fill="url(#g-georgia)"/>
+  <path d="M 140 220 L 220 265 L 320 250 L 440 200 L 520 180 L 670 200 L 660 440 L 520 460 L 440 470 L 320 460 L 220 430 Z" fill="url(#g-azer)"/>
+  <path d="M 140 220 L 220 265 L 320 250 L 440 200 L 320 460 L 220 430 L 140 380 Z" fill="url(#g-armenia)"/>
+
+  <!-- Seas -->
   <ellipse cx="60" cy="240" rx="90" ry="180" fill="url(#g-sea)"/>
   <ellipse cx="660" cy="360" rx="65" ry="110" fill="url(#g-sea)"/>
   <text x="35" y="155" font-size="12" fill="#80b8c8" font-weight="500" transform="rotate(-25,35,155)">🌊 黑海</text>
   <text x="685" y="400" font-size="12" fill="#80b8c8" font-weight="500" transform="rotate(-10,685,400)">🌊 里海</text>
 
-  <!-- 地形轮廓 -->
-  <path d="M 50 100 C 70 80, 110 50, 160 40 C 210 30, 280 25, 340 30 C 400 35, 450 28, 500 35 C 540 42, 580 50, 610 70 C 640 90, 660 120, 670 160 C 675 200, 670 240, 660 280 C 650 320, 630 360, 600 390 C 570 420, 530 440, 490 455 C 450 465, 410 470, 370 465 C 330 460, 290 450, 250 440 C 210 430, 170 410, 140 380 C 110 350, 80 310, 55 270 C 40 230, 35 180, 50 100 Z" fill="url(#g-land)" stroke="#d8d0b8" stroke-width="2" opacity=".6"/>
+  <!-- Land outline -->
+  <path d="M 50 100 C 70 80, 110 50, 160 40 C 210 30, 280 25, 340 30 C 400 35, 450 28, 500 35 C 540 42, 580 50, 610 70 C 640 90, 660 120, 670 160 C 675 200, 670 240, 660 280 C 650 320, 630 360, 600 390 C 570 420, 530 440, 490 455 C 450 465, 410 470, 370 465 C 330 460, 290 450, 250 440 C 210 430, 170 410, 140 380 C 110 350, 80 310, 55 270 C 40 230, 35 180, 50 100 Z" fill="none" stroke="#d8d0b8" stroke-width="2" opacity=".6"/>
 
-  <!-- 高加索山脉 -->
+  <!-- Caucasus mountains -->
   <path d="M 120 55 Q 210 20 360 55 Q 430 70 510 48" stroke="#c8b898" stroke-width="3" fill="none" opacity=".35" stroke-dasharray="3 4" stroke-linecap="round"/>
   <path d="M 130 75 Q 220 40 360 75 Q 420 90 500 68" stroke="#d4c8a8" stroke-width="2" fill="none" opacity=".25" stroke-dasharray="2 6"/>
   <text x="270" y="32" font-size="12" fill="#b0a088" font-weight="500">⛰️ 高加索山脉</text>
 
-  <!-- 国家水印 -->
-  <text x="200" y="130" font-size="32" font-weight="700" fill="#7ec8a0" opacity=".15" transform="rotate(-30,200,130)">格鲁吉亚</text>
-  <text x="180" y="440" font-size="32" font-weight="700" fill="#f0a070" opacity=".15" transform="rotate(-5,180,440)">亚美尼亚</text>
-  <text x="490" y="340" font-size="32" font-weight="700" fill="#70b8d0" opacity=".15" transform="rotate(15,490,340)">阿塞拜疆</text>
+  <!-- Country labels -->
+  <text x="185" y="130" font-size="28" font-weight="700" fill="#7ec8a0" opacity=".12" transform="rotate(-30,185,130)">格鲁吉亚</text>
+  <text x="175" y="440" font-size="28" font-weight="700" fill="#f0a070" opacity=".12" transform="rotate(-5,175,440)">亚美尼亚</text>
+  <text x="490" y="340" font-size="28" font-weight="700" fill="#70b8d0" opacity=".12" transform="rotate(15,490,340)">阿塞拜疆</text>
 
-  <!-- 塞凡湖 -->
-  <ellipse cx="365" cy="315" rx="22" ry="14" fill="#b8d8e8" opacity=".5" stroke="#90c8d8" stroke-width="1.5"/>
+  <!-- Sevan Lake -->
+  <ellipse cx="400" cy="280" rx="28" ry="18" fill="#b8d8e8" opacity=".55" stroke="#90c8d8" stroke-width="1.5"/>
+  <text x="400" y="278" font-size="10" fill="#70a8b8" text-anchor="middle" font-weight="500">塞凡湖</text>
 
-  <!-- 路线 -->
-  <path d="M 85 255 L 165 170 M 165 170 L 300 155 M 300 155 L 330 210 M 330 210 L 250 245 M 250 245 L 380 75 M 380 75 L 340 105 M 340 105 L 330 210 M 330 210 L 420 245 M 420 245 L 470 270 M 470 270 L 620 360 M 620 360 L 590 430 M 590 430 L 620 360 M 330 210 L 420 255 M 420 255 L 370 275 M 370 275 L 435 298 M 435 298 L 365 315 M 365 315 L 300 380 M 300 380 L 230 415 M 230 415 L 300 472 M 300 472 L 300 380 M 300 380 L 340 454 M 340 454 L 380 390 M 380 390 L 300 380" stroke="#5a7a6a" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".65"/>
+  <!-- Decorative compass rose -->
+  <g transform="translate(652, 30) scale(0.5)" opacity=".35">
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#888" stroke-width="1"/>
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#888" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <polygon points="0,-22 3,-6 0,-8 -3,-6" fill="#c88"/>
+    <polygon points="0,22 3,6 0,8 -3,6" fill="#888"/>
+    <polygon points="-22,0 -6,3 -8,0 -6,-3" fill="#888"/>
+    <polygon points="22,0 6,3 8,0 6,-3" fill="#888"/>
+    <text x="0" y="-28" font-size="10" fill="#c88" text-anchor="middle" font-weight="bold">N</text>
+  </g>
 
+  <!-- Legend bar -->
+  <rect x="520" y="15" width="145" height="28" rx="8" fill="#fff" stroke="#e8e0d0" stroke-width="0.8" opacity=".92"/>
+  <circle cx="535" cy="29" r="5" fill="#7ec8a0" stroke="#fff" stroke-width="1"/>
+  <text x="546" y="32" font-size="8" fill="#666">格鲁吉亚</text>
+  <circle cx="590" cy="29" r="5" fill="#f0a070" stroke="#fff" stroke-width="1"/>
+  <text x="601" y="32" font-size="8" fill="#666">亚美尼亚</text>
+  <circle cx="640" cy="29" r="5" fill="#70b8d0" stroke="#fff" stroke-width="1"/>
+  <text x="644" y="32" font-size="8" fill="#666">阿塞</text>
+
+  <path d="
+    M 135 200 L 210 200
+    M 210 200 L 260 145
+    M 260 145 L 330 230
+    M 330 230 L 275 270
+    M 275 270 L 380 70
+    M 380 70 L 340 105
+    M 340 105 L 330 230
+    M 330 230 L 535 255
+    M 535 255 L 470 295
+    M 470 295 L 620 370
+    M 620 370 L 590 430
+    M 590 430 L 620 370
+    M 330 230 L 395 225
+    M 395 225 L 470 340
+    M 470 340 L 365 348
+    M 365 348 L 400 355
+    M 400 355 L 300 395
+    M 300 395 L 230 430
+    M 230 430 L 305 478
+    M 305 478 L 300 395
+    M 300 395 L 345 480
+    M 345 480 L 375 435
+    M 375 435 L 300 395
+  " stroke="url(#g-route)" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
 
   <g>
-    <circle cx="85" cy="255" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="85" y="256" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏖️</text>
+      <circle cx="135" cy="200" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="135" y="201" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏖️</text>
   </g>
-  <g>
-    <text x="85" y="291" font-size="11" fill="#444" font-weight="600" text-anchor="middle">巴统</text>
-    <text x="85" y="300" font-size="7.5" fill="#888" text-anchor="middle">黑海海滨</text>
-  </g>
-
-
-  <g>
-    <circle cx="165" cy="170" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="165" y="171" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
-  </g>
-  <g>
-    <text x="165" y="206" font-size="11" fill="#444" font-weight="600" text-anchor="middle">库塔伊西</text>
-    <text x="165" y="215" font-size="7.5" fill="#888" text-anchor="middle">巴格拉特教堂</text>
-  </g>
-
+    <g>
+      <text x="135" y="162" font-size="11" fill="#444" font-weight="600" text-anchor="middle">巴统</text>
+      <text x="135" y="171" font-size="7.5" fill="#888" text-anchor="middle">黑海明珠</text>
+    </g>
 
   <g>
-    <circle cx="300" cy="155" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="300" y="156" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+      <circle cx="210" cy="200" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="210" y="201" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
-  <g>
-    <text x="300" y="133" font-size="11" fill="#444" font-weight="600" text-anchor="middle">姆茨赫塔</text>
-    <text x="300" y="142" font-size="7.5" fill="#888" text-anchor="middle">古城·生命之柱教堂</text>
-  </g>
-
-
-  <g filter="url(#glow)">
-    <circle cx="330" cy="210" r="20" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="330" y="211" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
-  </g>
-  <g>
-    <text x="330" y="182" font-size="11" fill="#444" font-weight="600" text-anchor="middle">第比利斯</text>
-    <text x="330" y="191" font-size="7.5" fill="#888" text-anchor="middle">首都·硫磺浴老城</text>
-  </g>
-
+    <g>
+      <text x="210" y="226" font-size="11" fill="#444" font-weight="600" text-anchor="middle">库塔伊西</text>
+      <text x="210" y="235" font-size="7.5" fill="#888" text-anchor="middle">巴格拉特教堂</text>
+    </g>
 
   <g>
-    <circle cx="250" cy="245" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="250" y="246" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏚️</text>
+      <circle cx="260" cy="145" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="260" y="146" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
-  <g>
-    <text x="250" y="281" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哥里</text>
-    <text x="250" y="290" font-size="7.5" fill="#888" text-anchor="middle">斯大林故乡</text>
-  </g>
+    <g>
+      <text x="260" y="107" font-size="11" fill="#444" font-weight="600" text-anchor="middle">姆茨赫塔</text>
+      <text x="260" y="116" font-size="7.5" fill="#888" text-anchor="middle">古城·生命之柱教堂</text>
+    </g>
 
-
-  <g>
-    <circle cx="380" cy="75" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="380" y="76" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏔️</text>
-  </g>
-  <g>
-    <text x="380" y="53" font-size="11" fill="#444" font-weight="600" text-anchor="middle">卡兹别克</text>
-    <text x="380" y="62" font-size="7.5" fill="#888" text-anchor="middle">圣三一教堂·雪山</text>
-  </g>
-
+    <g filter="url(#glow)">
+      <circle cx="330" cy="230" r="20" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="330" y="231" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
+    </g>
+    <g>
+      <text x="330" y="188" font-size="11" fill="#444" font-weight="600" text-anchor="middle">第比利斯</text>
+      <text x="330" y="197" font-size="7.5" fill="#888" text-anchor="middle">首都·硫磺浴老城</text>
+    </g>
 
   <g>
-    <circle cx="340" cy="105" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="340" y="106" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🎿</text>
+      <circle cx="275" cy="270" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="275" y="271" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏚️</text>
   </g>
-  <g>
-    <text x="340" y="141" font-size="11" fill="#444" font-weight="600" text-anchor="middle">古多里</text>
-    <text x="340" y="150" font-size="7.5" fill="#888" text-anchor="middle">滑雪小镇</text>
-  </g>
-
-
-  <g>
-    <circle cx="420" cy="245" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="420" y="246" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🍷</text>
-  </g>
-  <g>
-    <text x="420" y="281" font-size="11" fill="#444" font-weight="600" text-anchor="middle">西格纳吉</text>
-    <text x="420" y="290" font-size="7.5" fill="#888" text-anchor="middle">红酒小镇</text>
-  </g>
-
+    <g>
+      <text x="275" y="296" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哥里</text>
+      <text x="275" y="305" font-size="7.5" fill="#888" text-anchor="middle">斯大林故乡</text>
+    </g>
 
   <g>
-    <circle cx="470" cy="270" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
-    <text x="470" y="271" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏰</text>
+      <circle cx="380" cy="70" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="380" y="71" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏔️</text>
   </g>
-  <g>
-    <text x="470" y="306" font-size="11" fill="#444" font-weight="600" text-anchor="middle">舍基</text>
-    <text x="470" y="315" font-size="7.5" fill="#888" text-anchor="middle">汗宫·丝路驿站</text>
-  </g>
-
-
-  <g filter="url(#glow)">
-    <circle cx="620" cy="360" r="20" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
-    <text x="620" y="361" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🕌</text>
-  </g>
-  <g>
-    <text x="620" y="332" font-size="11" fill="#444" font-weight="600" text-anchor="middle">巴库</text>
-    <text x="620" y="341" font-size="7.5" fill="#888" text-anchor="middle">首都·火焰塔</text>
-  </g>
-
+    <g>
+      <text x="380" y="32" font-size="11" fill="#444" font-weight="600" text-anchor="middle">卡兹别克</text>
+      <text x="380" y="41" font-size="7.5" fill="#888" text-anchor="middle">圣三一教堂·雪山</text>
+    </g>
 
   <g>
-    <circle cx="590" cy="430" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
-    <text x="590" y="431" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌋</text>
+      <circle cx="340" cy="105" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="340" y="106" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🎿</text>
   </g>
-  <g>
-    <text x="590" y="408" font-size="11" fill="#444" font-weight="600" text-anchor="middle">戈布斯坦</text>
-    <text x="590" y="417" font-size="7.5" fill="#888" text-anchor="middle">泥火山·岩画</text>
-  </g>
-
-
-  <g>
-    <circle cx="420" cy="255" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="420" y="256" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
-  </g>
-  <g>
-    <text x="420" y="233" font-size="11" fill="#444" font-weight="600" text-anchor="middle">萨纳欣</text>
-    <text x="420" y="242" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
-  </g>
-
+    <g>
+      <text x="340" y="131" font-size="11" fill="#444" font-weight="600" text-anchor="middle">古多里</text>
+      <text x="340" y="140" font-size="7.5" fill="#888" text-anchor="middle">滑雪小镇</text>
+    </g>
 
   <g>
-    <circle cx="370" cy="275" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="370" y="276" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+      <circle cx="535" cy="255" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+      <text x="535" y="256" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🍷</text>
   </g>
-  <g>
-    <text x="370" y="311" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哈巴特</text>
-    <text x="370" y="320" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
-  </g>
+    <g>
+      <text x="535" y="281" font-size="11" fill="#444" font-weight="600" text-anchor="middle">西格纳吉</text>
+      <text x="535" y="290" font-size="7.5" fill="#888" text-anchor="middle">红酒小镇</text>
+    </g>
 
-
-  <g>
-    <circle cx="435" cy="298" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="435" y="299" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌲</text>
-  </g>
-  <g>
-    <text x="435" y="334" font-size="11" fill="#444" font-weight="600" text-anchor="middle">迪利然</text>
-    <text x="435" y="343" font-size="7.5" fill="#888" text-anchor="middle">森林老城</text>
-  </g>
-
+    <g filter="url(#glow)">
+      <circle cx="85" cy="260" r="20" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
+      <text x="85" y="261" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏙️</text>
+    </g>
+    <g>
+      <text x="85" y="290" font-size="11" fill="#444" font-weight="600" text-anchor="middle">巴库</text>
+      <text x="85" y="299" font-size="7.5" fill="#888" text-anchor="middle">首都·火焰之国</text>
+    </g>
 
   <g>
-    <circle cx="365" cy="315" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="365" y="316" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">💙</text>
+      <circle cx="620" cy="370" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
+      <text x="620" y="371" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌋</text>
   </g>
-  <g>
-    <text x="365" y="293" font-size="11" fill="#444" font-weight="600" text-anchor="middle">塞凡</text>
-    <text x="365" y="302" font-size="7.5" fill="#888" text-anchor="middle">塞凡湖·高加索明珠</text>
-  </g>
-
-
-  <g filter="url(#glow)">
-    <circle cx="300" cy="380" r="20" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="300" y="381" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
-  </g>
-  <g>
-    <text x="300" y="352" font-size="11" fill="#444" font-weight="600" text-anchor="middle">埃里温</text>
-    <text x="300" y="361" font-size="7.5" fill="#888" text-anchor="middle">首都·共和国广场</text>
-  </g>
-
+    <g>
+      <text x="620" y="332" font-size="11" fill="#444" font-weight="600" text-anchor="middle">戈布斯坦</text>
+      <text x="620" y="341" font-size="7.5" fill="#888" text-anchor="middle">泥火山·岩画</text>
+    </g>
 
   <g>
-    <circle cx="230" cy="415" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="230" y="416" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+      <circle cx="470" cy="295" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
+      <text x="470" y="296" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏰</text>
   </g>
-  <g>
-    <text x="230" y="451" font-size="11" fill="#444" font-weight="600" text-anchor="middle">埃奇米阿津</text>
-    <text x="230" y="460" font-size="7.5" fill="#888" text-anchor="middle">第一座教堂</text>
-  </g>
-
-
-  <g>
-    <circle cx="300" cy="472" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="300" y="473" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏜️</text>
-  </g>
-  <g>
-    <text x="300" y="508" font-size="11" fill="#444" font-weight="600" text-anchor="middle">深坑修道院</text>
-    <text x="300" y="517" font-size="7.5" fill="#888" text-anchor="middle">远眺阿拉拉特山</text>
-  </g>
-
+    <g>
+      <text x="470" y="257" font-size="11" fill="#444" font-weight="600" text-anchor="middle">舍基</text>
+      <text x="470" y="266" font-size="7.5" fill="#888" text-anchor="middle">汗宫·丝路驿站</text>
+    </g>
 
   <g>
-    <circle cx="340" cy="454" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="340" y="455" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
+      <circle cx="395" cy="225" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="395" y="226" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
-  <g>
-    <text x="340" y="490" font-size="11" fill="#444" font-weight="600" text-anchor="middle">加尼</text>
-    <text x="340" y="499" font-size="7.5" fill="#888" text-anchor="middle">希腊神殿</text>
-  </g>
+    <g>
+      <text x="395" y="251" font-size="11" fill="#444" font-weight="600" text-anchor="middle">萨纳欣</text>
+      <text x="395" y="260" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
+    </g>
 
+  <g>
+      <circle cx="470" cy="340" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="470" y="341" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌲</text>
+  </g>
+    <g>
+      <text x="492" y="366" font-size="11" fill="#444" font-weight="600" text-anchor="start">迪利然</text>
+      <text x="492" y="375" font-size="7.5" fill="#888" text-anchor="start">森林老城</text>
+    </g>
 
   <g>
-    <circle cx="380" cy="390" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="380" y="391" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+      <circle cx="365" cy="348" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="365" y="349" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
-  <g>
-    <text x="380" y="368" font-size="11" fill="#444" font-weight="600" text-anchor="middle">格加尔德</text>
-    <text x="380" y="377" font-size="7.5" fill="#888" text-anchor="middle">岩洞修道院</text>
-  </g>
+    <g>
+      <text x="387" y="374" font-size="11" fill="#444" font-weight="600" text-anchor="start">哈巴特</text>
+      <text x="387" y="383" font-size="7.5" fill="#888" text-anchor="start">修道院·世界遗产</text>
+    </g>
 
+  <g>
+      <circle cx="400" cy="355" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="400" y="356" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">💙</text>
+  </g>
+    <g>
+      <text x="422" y="381" font-size="11" fill="#444" font-weight="600" text-anchor="start">塞凡</text>
+      <text x="422" y="390" font-size="7.5" fill="#888" text-anchor="start">塞凡湖·高加索明珠</text>
+    </g>
+
+    <g filter="url(#glow)">
+      <circle cx="300" cy="395" r="20" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="300" y="396" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
+    </g>
+    <g>
+      <text x="300" y="353" font-size="11" fill="#444" font-weight="600" text-anchor="middle">埃里温</text>
+      <text x="300" y="362" font-size="7.5" fill="#888" text-anchor="middle">首都·共和国广场</text>
+    </g>
+
+  <g>
+      <circle cx="230" cy="430" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="230" y="431" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  </g>
+    <g>
+      <text x="230" y="456" font-size="11" fill="#444" font-weight="600" text-anchor="middle">埃奇米阿津</text>
+      <text x="230" y="465" font-size="7.5" fill="#888" text-anchor="middle">第一座教堂</text>
+    </g>
+
+  <g>
+      <circle cx="305" cy="478" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="305" y="479" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏜️</text>
+  </g>
+    <g>
+      <text x="305" y="504" font-size="11" fill="#444" font-weight="600" text-anchor="middle">深坑修道院</text>
+      <text x="305" y="513" font-size="7.5" fill="#888" text-anchor="middle">远眺阿拉拉特山</text>
+    </g>
+
+  <g>
+      <circle cx="345" cy="480" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="345" y="481" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
+  </g>
+    <g>
+      <text x="367" y="506" font-size="11" fill="#444" font-weight="600" text-anchor="start">加尼</text>
+      <text x="367" y="515" font-size="7.5" fill="#888" text-anchor="start">希腊神殿</text>
+    </g>
+
+  <g>
+      <circle cx="375" cy="435" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+      <text x="375" y="436" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  </g>
+    <g>
+      <text x="397" y="397" font-size="11" fill="#444" font-weight="600" text-anchor="start">格加尔德</text>
+      <text x="397" y="406" font-size="7.5" fill="#888" text-anchor="start">岩洞修道院</text>
+    </g>
 
   <g transform="translate(30, 460)">
     <rect x="0" y="0" width="165" height="36" rx="10" fill="#fff" stroke="#e8e0d0" stroke-width="1" opacity=".95"/>
-    <circle cx="18" cy="18" r="6" fill="#7ec8a0" stroke="#fff" stroke-width="1.5"/><text x="30" y="21" font-size="9" fill="#555">格鲁吉亚</text>
-    <circle cx="80" cy="18" r="6" fill="#f0a070" stroke="#fff" stroke-width="1.5"/><text x="92" y="21" font-size="9" fill="#555">亚美尼亚</text>
-    <circle cx="140" cy="18" r="6" fill="#70b8d0" stroke="#fff" stroke-width="1.5"/><text x="152" y="21" font-size="9" fill="#555">阿塞拜疆</text>
+    <circle cx="18" cy="18" r="6" fill="#7ec8a0" stroke="#fff" stroke-width="1.5"/>
+    <text x="30" y="21" font-size="9" fill="#555">格鲁吉亚</text>
+    <circle cx="80" cy="18" r="6" fill="#f0a070" stroke="#fff" stroke-width="1.5"/>
+    <text x="92" y="21" font-size="9" fill="#555">亚美尼亚</text>
+    <circle cx="140" cy="18" r="6" fill="#70b8d0" stroke="#fff" stroke-width="1.5"/>
+    <text x="152" y="21" font-size="9" fill="#555">阿塞拜疆</text>
   </g>
 </svg>
 
