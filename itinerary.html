@@ -91,6 +91,9 @@
     <marker id="arrow-e" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 Z" fill="#888" opacity=".55"/>
     </marker>
+    <marker id="arrow-w" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 0 L 0 5 L 10 10 Z" fill="#888" opacity=".55"/>
+    </marker>
     <linearGradient id="g-sea" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#d4e8f0" stop-opacity=".5"/>
       <stop offset="100%" stop-color="#c0dce8" stop-opacity=".35"/>
@@ -175,11 +178,14 @@
     M 345 470 L 375 430
     M 375 430 L 300 380
   " stroke="url(#g-route)" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-  <!-- 进出高加索 -->
-  <path d="M 720 340 L 600 340 M 330 230 L 720 200" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6 4" opacity=".55" marker-end="url(#arrow-e)"/>
-  <text x="722" y="333" font-size="11" fill="#888" text-anchor="start" font-weight="500">✈️ 上海</text>
-  <text x="722" y="204" font-size="8" fill="#aaa" text-anchor="start">9.30 返程</text>
-  <text x="722" y="353" font-size="8" fill="#aaa" text-anchor="start">9.19 抵达</text>
+  <!-- 进: 上海→巴库 (9.19) -->
+  <path d="M 720 340 L 600 340" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6 4" opacity=".55" marker-end="url(#arrow-e)"/>
+  <text x="722" y="333" font-size="10" fill="#888" text-anchor="start" font-weight="500">✈️ 上海</text>
+  <text x="722" y="346" font-size="7.5" fill="#aaa" text-anchor="start">9.19 抵达→</text>
+  <!-- 出: 第比利斯→上海 (9.30) -->
+  <path d="M 330 230 L 720 200" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6 4" opacity=".55" marker-end="url(#arrow-w)"/>
+  <text x="722" y="196" font-size="10" fill="#888" text-anchor="start" font-weight="500">✈️ 上海</text>
+  <text x="722" y="209" font-size="7.5" fill="#aaa" text-anchor="start">←9.30 返程</text>
 
   <g>
       <circle cx="130" cy="195" r="20" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
