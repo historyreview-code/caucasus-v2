@@ -9,11 +9,11 @@
   body { background:#f5f0eb; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:24px; font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; }
   .wrapper { max-width:1100px; width:100%; background:#fffdf9; border-radius:24px; box-shadow:0 4px 28px rgba(0,0,0,.08); padding:28px; }
   .title { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
-  .title h1 { font-size:24px; font-weight:700; color:#2c2c2c; }
+  .title h1 { font-size:24px; font-weight:700; color:#2c2c2c; letter-spacing:.5px; }
   .title .meta { font-size:13px; color:#999; background:#f0ece6; padding:5px 16px; border-radius:20px; }
   .mapc svg { display:block; width:100%; height:auto; border-radius:16px; }
-  @keyframes dashMove { to { stroke-dashoffset:-20; } }
-  .route-line { stroke-dasharray:6 4; animation:dashMove .8s linear infinite; }
+  @keyframes dashMove { to { stroke-dashoffset:-24; } }
+  .route-line { stroke-dasharray:6 5; animation:dashMove 1s linear infinite; }
 </style>
 </head>
 <body>
@@ -24,42 +24,57 @@
   </div>
   <div class="mapc"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="background:#f7f3ea;">
   <defs>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="1.2" fill="#e0d8cc" opacity=".35"/>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#e0d8cc" opacity=".25"/>
     </pattern>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
-      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2.5" flood-opacity=".12"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity=".13"/>
     </filter>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-opacity=".08"/>
+    </filter>
+    <linearGradient id="g-sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4e8f0" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#c0dce8" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="g-land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5efdf" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#ede7d0" stop-opacity=".5"/>
+    </linearGradient>
   </defs>
 
   <rect width="700" height="520" fill="#f7f3ea"/>
   <rect width="700" height="520" fill="url(#grid)"/>
 
   <!-- 海域 -->
-  <ellipse cx="70" cy="240" rx="100" ry="170" fill="#d4e8f0" opacity=".45"/>
-  <ellipse cx="660" cy="360" rx="70" ry="100" fill="#d4e8f0" opacity=".35"/>
-  <text x="45" y="160" font-size="12" fill="#80b8c8" font-weight="500" transform="rotate(-25,45,160)">🌊 黑海</text>
+  <ellipse cx="60" cy="240" rx="90" ry="180" fill="url(#g-sea)"/>
+  <ellipse cx="660" cy="360" rx="65" ry="110" fill="url(#g-sea)"/>
+  <text x="35" y="155" font-size="12" fill="#80b8c8" font-weight="500" transform="rotate(-25,35,155)">🌊 黑海</text>
   <text x="685" y="400" font-size="12" fill="#80b8c8" font-weight="500" transform="rotate(-10,685,400)">🌊 里海</text>
 
+  <!-- 地形轮廓 -->
+  <path d="M 50 100 C 70 80, 110 50, 160 40 C 210 30, 280 25, 340 30 C 400 35, 450 28, 500 35 C 540 42, 580 50, 610 70 C 640 90, 660 120, 670 160 C 675 200, 670 240, 660 280 C 650 320, 630 360, 600 390 C 570 420, 530 440, 490 455 C 450 465, 410 470, 370 465 C 330 460, 290 450, 250 440 C 210 430, 170 410, 140 380 C 110 350, 80 310, 55 270 C 40 230, 35 180, 50 100 Z" fill="url(#g-land)" stroke="#d8d0b8" stroke-width="2" opacity=".6"/>
+
   <!-- 高加索山脉 -->
-  <path d="M 130 55 Q 220 25 360 60 Q 420 75 490 55" stroke="#c8b898" stroke-width="2.5" fill="none" opacity=".45"/>
-  <text x="270" y="38" font-size="12" fill="#b0a088" font-weight="500">⛰️ 高加索山脉</text>
+  <path d="M 120 55 Q 210 20 360 55 Q 430 70 510 48" stroke="#c8b898" stroke-width="3" fill="none" opacity=".35" stroke-dasharray="3 4" stroke-linecap="round"/>
+  <path d="M 130 75 Q 220 40 360 75 Q 420 90 500 68" stroke="#d4c8a8" stroke-width="2" fill="none" opacity=".25" stroke-dasharray="2 6"/>
+  <text x="270" y="32" font-size="12" fill="#b0a088" font-weight="500">⛰️ 高加索山脉</text>
 
   <!-- 国家水印 -->
-  <text x="200" y="130" font-size="32" font-weight="700" fill="#7ec8a0" opacity=".13" transform="rotate(-30,200,130)">格鲁吉亚</text>
-  <text x="180" y="440" font-size="32" font-weight="700" fill="#f0a070" opacity=".13" transform="rotate(-5,180,440)">亚美尼亚</text>
-  <text x="490" y="340" font-size="32" font-weight="700" fill="#70b8d0" opacity=".13" transform="rotate(15,490,340)">阿塞拜疆</text>
+  <text x="200" y="130" font-size="32" font-weight="700" fill="#7ec8a0" opacity=".15" transform="rotate(-30,200,130)">格鲁吉亚</text>
+  <text x="180" y="440" font-size="32" font-weight="700" fill="#f0a070" opacity=".15" transform="rotate(-5,180,440)">亚美尼亚</text>
+  <text x="490" y="340" font-size="32" font-weight="700" fill="#70b8d0" opacity=".15" transform="rotate(15,490,340)">阿塞拜疆</text>
 
   <!-- 塞凡湖 -->
-  <ellipse cx="370" cy="310" rx="22" ry="16" fill="#b8dce8" opacity=".55" stroke="#90c8d8" stroke-width="1.5"/>
+  <ellipse cx="365" cy="315" rx="22" ry="14" fill="#b8d8e8" opacity=".5" stroke="#90c8d8" stroke-width="1.5"/>
 
   <!-- 路线 -->
-  <path d="M 85 255 L 165 170 M 165 170 L 300 155 M 300 155 L 330 210 M 330 210 L 250 245 M 250 245 L 380 75 M 380 75 L 340 105 M 340 105 L 330 210 M 330 210 L 420 245 M 420 245 L 470 270 M 470 270 L 620 360 M 620 360 L 590 430 M 590 430 L 620 360 M 330 210 L 415 255 M 415 255 L 385 268 M 385 268 L 430 290 M 430 290 L 370 310 M 370 310 L 300 380 M 300 380 L 230 415 M 230 415 L 300 472 M 300 472 L 300 380 M 300 380 L 340 454 M 340 454 L 380 390 M 380 390 L 300 380" stroke="#4a9e8e" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+  <path d="M 85 255 L 165 170 M 165 170 L 300 155 M 300 155 L 330 210 M 330 210 L 250 245 M 250 245 L 380 75 M 380 75 L 340 105 M 340 105 L 330 210 M 330 210 L 420 245 M 420 245 L 470 270 M 470 270 L 620 360 M 620 360 L 590 430 M 590 430 L 620 360 M 330 210 L 420 255 M 420 255 L 370 275 M 370 275 L 435 298 M 435 298 L 365 315 M 365 315 L 300 380 M 300 380 L 230 415 M 230 415 L 300 472 M 300 472 L 300 380 M 300 380 L 340 454 M 340 454 L 380 390 M 380 390 L 300 380" stroke="#5a7a6a" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".65"/>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="85" cy="255" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="85" y="256" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏖️</text>
+  <g>
+    <circle cx="85" cy="255" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="85" y="256" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏖️</text>
   </g>
   <g>
     <text x="85" y="291" font-size="11" fill="#444" font-weight="600" text-anchor="middle">巴统</text>
@@ -67,9 +82,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="165" cy="170" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="165" y="171" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="165" cy="170" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="165" y="171" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
     <text x="165" y="206" font-size="11" fill="#444" font-weight="600" text-anchor="middle">库塔伊西</text>
@@ -77,9 +92,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="300" cy="155" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="300" y="156" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="300" cy="155" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="300" y="156" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
     <text x="300" y="133" font-size="11" fill="#444" font-weight="600" text-anchor="middle">姆茨赫塔</text>
@@ -87,7 +102,7 @@
   </g>
 
 
-  <g filter="url(#shadow)">
+  <g filter="url(#glow)">
     <circle cx="330" cy="210" r="20" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
     <text x="330" y="211" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
   </g>
@@ -97,9 +112,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="250" cy="245" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="250" y="246" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏚️</text>
+  <g>
+    <circle cx="250" cy="245" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="250" y="246" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏚️</text>
   </g>
   <g>
     <text x="250" y="281" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哥里</text>
@@ -107,9 +122,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="380" cy="75" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="380" y="76" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏔️</text>
+  <g>
+    <circle cx="380" cy="75" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="380" y="76" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏔️</text>
   </g>
   <g>
     <text x="380" y="53" font-size="11" fill="#444" font-weight="600" text-anchor="middle">卡兹别克</text>
@@ -117,19 +132,19 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="340" cy="105" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="340" y="106" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🎿</text>
+  <g>
+    <circle cx="340" cy="105" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="340" y="106" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🎿</text>
   </g>
   <g>
     <text x="340" y="141" font-size="11" fill="#444" font-weight="600" text-anchor="middle">古多里</text>
-    <text x="340" y="150" font-size="7.5" fill="#888" text-anchor="middle">滑雪小镇·高加索公路</text>
+    <text x="340" y="150" font-size="7.5" fill="#888" text-anchor="middle">滑雪小镇</text>
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="420" cy="245" r="14" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
-    <text x="420" y="246" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🍷</text>
+  <g>
+    <circle cx="420" cy="245" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
+    <text x="420" y="246" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🍷</text>
   </g>
   <g>
     <text x="420" y="281" font-size="11" fill="#444" font-weight="600" text-anchor="middle">西格纳吉</text>
@@ -137,9 +152,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="470" cy="270" r="14" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
-    <text x="470" y="271" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏰</text>
+  <g>
+    <circle cx="470" cy="270" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
+    <text x="470" y="271" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏰</text>
   </g>
   <g>
     <text x="470" y="306" font-size="11" fill="#444" font-weight="600" text-anchor="middle">舍基</text>
@@ -147,7 +162,7 @@
   </g>
 
 
-  <g filter="url(#shadow)">
+  <g filter="url(#glow)">
     <circle cx="620" cy="360" r="20" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
     <text x="620" y="361" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🕌</text>
   </g>
@@ -157,9 +172,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="590" cy="430" r="14" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
-    <text x="590" y="431" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🌋</text>
+  <g>
+    <circle cx="590" cy="430" r="16" fill="#70b8d0" stroke="#fff" stroke-width="3"/>
+    <text x="590" y="431" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌋</text>
   </g>
   <g>
     <text x="590" y="408" font-size="11" fill="#444" font-weight="600" text-anchor="middle">戈布斯坦</text>
@@ -167,47 +182,47 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="415" cy="255" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="415" y="256" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="420" cy="255" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="420" y="256" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
-    <text x="415" y="233" font-size="11" fill="#444" font-weight="600" text-anchor="middle">萨纳欣</text>
-    <text x="415" y="242" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
+    <text x="420" y="233" font-size="11" fill="#444" font-weight="600" text-anchor="middle">萨纳欣</text>
+    <text x="420" y="242" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="385" cy="268" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="385" y="269" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="370" cy="275" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="370" y="276" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
-    <text x="385" y="304" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哈巴特</text>
-    <text x="385" y="313" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
+    <text x="370" y="311" font-size="11" fill="#444" font-weight="600" text-anchor="middle">哈巴特</text>
+    <text x="370" y="320" font-size="7.5" fill="#888" text-anchor="middle">修道院·世界遗产</text>
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="430" cy="290" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="430" y="291" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🌲</text>
+  <g>
+    <circle cx="435" cy="298" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="435" y="299" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🌲</text>
   </g>
   <g>
-    <text x="430" y="326" font-size="11" fill="#444" font-weight="600" text-anchor="middle">迪利然</text>
-    <text x="430" y="335" font-size="7.5" fill="#888" text-anchor="middle">森林老城</text>
+    <text x="435" y="334" font-size="11" fill="#444" font-weight="600" text-anchor="middle">迪利然</text>
+    <text x="435" y="343" font-size="7.5" fill="#888" text-anchor="middle">森林老城</text>
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="370" cy="310" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="370" y="311" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">💙</text>
+  <g>
+    <circle cx="365" cy="315" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="365" y="316" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">💙</text>
   </g>
   <g>
-    <text x="370" y="288" font-size="11" fill="#444" font-weight="600" text-anchor="middle">塞凡</text>
-    <text x="370" y="297" font-size="7.5" fill="#888" text-anchor="middle">塞凡湖·高加索明珠</text>
+    <text x="365" y="293" font-size="11" fill="#444" font-weight="600" text-anchor="middle">塞凡</text>
+    <text x="365" y="302" font-size="7.5" fill="#888" text-anchor="middle">塞凡湖·高加索明珠</text>
   </g>
 
 
-  <g filter="url(#shadow)">
+  <g filter="url(#glow)">
     <circle cx="300" cy="380" r="20" fill="#f0a070" stroke="#fff" stroke-width="3"/>
     <text x="300" y="381" font-size="14" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
   </g>
@@ -217,9 +232,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="230" cy="415" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="230" y="416" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="230" cy="415" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="230" y="416" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
     <text x="230" y="451" font-size="11" fill="#444" font-weight="600" text-anchor="middle">埃奇米阿津</text>
@@ -227,9 +242,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="300" cy="472" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="300" y="473" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏜️</text>
+  <g>
+    <circle cx="300" cy="472" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="300" y="473" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏜️</text>
   </g>
   <g>
     <text x="300" y="508" font-size="11" fill="#444" font-weight="600" text-anchor="middle">深坑修道院</text>
@@ -237,9 +252,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="340" cy="454" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="340" y="455" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
+  <g>
+    <circle cx="340" cy="454" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="340" y="455" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">🏛️</text>
   </g>
   <g>
     <text x="340" y="490" font-size="11" fill="#444" font-weight="600" text-anchor="middle">加尼</text>
@@ -247,9 +262,9 @@
   </g>
 
 
-  <g filter="url(#shadow)">
-    <circle cx="380" cy="390" r="14" fill="#f0a070" stroke="#fff" stroke-width="3"/>
-    <text x="380" y="391" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
+  <g>
+    <circle cx="380" cy="390" r="16" fill="#f0a070" stroke="#fff" stroke-width="3"/>
+    <text x="380" y="391" font-size="13" fill="#fff" text-anchor="middle" dominant-baseline="central">⛪</text>
   </g>
   <g>
     <text x="380" y="368" font-size="11" fill="#444" font-weight="600" text-anchor="middle">格加尔德</text>
