@@ -3,81 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>高加索三国 · 14天行程</title>
+<title>高加索三国 · 卡通路线地图</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:#f5f0eb; display:flex; flex-direction:column; align-items:center; font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; padding:24px 16px; min-height:100vh; }
-  .journal { max-width:900px; width:100%; background:#fffdf9; border-radius:24px; box-shadow:0 4px 28px rgba(0,0,0,.08); overflow:hidden; }
-  .spread { display:flex; flex-wrap:wrap; }
-  .page { flex:1 1 390px; min-width:340px; padding:28px 24px 32px; }
-  .page:first-child { border-right:1px dashed #e8e0d6; }
-  .header { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
-  .header .avatar { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#7ec8a0,#f0a070); display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; flex-shrink:0; }
-  .header .meta .name { font-size:14px; font-weight:600; color:#2c2c2c; }
-  .header .meta .date { font-size:11px; color:#999; margin-top:2px; }
-  .header .like-btn { font-size:13px; color:#fc6b6b; background:#fff0f0; padding:4px 14px; border-radius:20px; font-weight:500; cursor:default; }
-  .ptitle { font-size:20px; font-weight:700; color:#2c2c2c; margin-bottom:2px; }
-  .psub { font-size:12px; color:#b0a89c; margin-bottom:10px; display:flex; gap:6px; flex-wrap:wrap; }
-  .psub span { background:#f0ece6; padding:2px 10px; border-radius:12px; font-size:11px; }
-  .mapc { border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.06); margin-bottom:14px; }
-  .mapc svg { display:block; width:100%; height:auto; }
+  body { background:#f5f0eb; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:24px; font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; }
+  .wrapper { max-width:1100px; width:100%; background:#fffdf9; border-radius:24px; box-shadow:0 4px 28px rgba(0,0,0,.08); padding:28px; }
+  .title { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .title h1 { font-size:24px; font-weight:700; color:#2c2c2c; letter-spacing:.5px; }
+  .title .meta { font-size:13px; color:#999; background:#f0ece6; padding:5px 16px; border-radius:20px; }
+  .mapc svg { display:block; width:100%; height:auto; border-radius:16px; }
   @keyframes dashMove { to { stroke-dashoffset:-24; } }
-  .route-line { stroke-dasharray:6 5; animation:dashMove 1s linear infinite; }
-  .summary { display:flex; gap:8px; margin-bottom:10px; }
-  .summary .c { flex:1; padding:8px; border-radius:10px; text-align:center; font-size:10px; color:#fff; cursor:default; }
-  .c1 { background:linear-gradient(135deg,#7ec8a0,#5ab890); }
-  .c2 { background:linear-gradient(135deg,#f0a070,#d08050); }
-  .c3 { background:linear-gradient(135deg,#70b8d0,#5098b0); }
-  .summary .c .n { font-size:18px; font-weight:700; }
-  .summary .c .l { opacity:.85; margin-top:1px; }
-  .rs { display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:8px 12px; background:#faf8f5; border-radius:12px; margin-bottom:10px; font-size:11px; color:#555; }
-  .rs .s { display:flex; align-items:center; gap:3px; }
-  .rs .dot { width:7px; height:7px; border-radius:50%; display:inline-block; }
-  .st { font-size:13px; font-weight:600; color:#2c2c2c; margin:12px 0 6px; display:flex; align-items:center; gap:6px; }
-  .st::after { content:''; flex:1; height:1px; background:#f0ece6; }
-  .dl { display:flex; flex-direction:column; gap:4px; }
-  .di { display:flex; align-items:flex-start; gap:8px; padding:6px 9px; background:#faf8f5; border-radius:9px; transition:transform .2s; cursor:default; }
-  .di:hover { transform:translateX(3px); }
-  .di .dn { font-size:9px; font-weight:700; color:#fff; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .di .info { flex:1; min-width:0; }
-  .di .info .t { font-size:11px; font-weight:600; color:#2c2c2c; }
-  .di .info .d { font-size:9.5px; color:#888; margin-top:1px; line-height:1.3; }
-  .footer { display:flex; justify-content:space-around; align-items:center; padding:10px 20px; border-top:1px solid #f0ece6; color:#999; font-size:11px; }
-  .footer span { display:flex; align-items:center; gap:4px; cursor:default; }
-  .vml { display:inline-block; font-size:11px; color:#7ec8a0; text-decoration:none; margin-top:6px; font-weight:500; }
-  .vml:hover { text-decoration:underline; }
-  @media (max-width:780px) { .page:first-child { border-right:none; border-bottom:1px dashed #e8e0d6; } .page { padding:18px 14px; } }
+  .route-line { stroke-dasharray:8 6; animation:dashMove 1.2s linear infinite; }
 </style>
 </head>
 <body>
-<div class="journal">
-  <div style="padding:18px 20px 0 20px;">
-    <div class="header">
-      <div class="avatar">🌍</div>
-      <div class="meta">
-        <div class="name">高加索文化之旅 🏔️</div>
-        <div class="date">2026.09.17 - 09.30 · 三国 14 天</div>
-      </div>
-      <div class="like-btn">❤ 4.2k</div>
-    </div>
+<div class="wrapper">
+  <div class="title">
+    <h1>🗺️ 高加索三国 · 14天文化之旅</h1>
+    <span class="meta">2026.09.17 - 09.30</span>
   </div>
-  <div class="spread">
-    <div class="page">
-      <div class="ptitle">🗺️ 路线概览</div>
-      <div class="psub"><span>✈️ 上海→巴库</span><span>🚗 三国环线</span><span>📍 20 个目的地</span></div>
-      <div class="summary">
-        <div class="c c3"><div class="n">3</div><div class="l">🇦🇿 阿塞拜疆</div></div>
-        <div class="c c1"><div class="n">9</div><div class="l">🇬🇪 格鲁吉亚</div></div>
-        <div class="c c2"><div class="n">8</div><div class="l">🇦🇲 亚美尼亚</div></div>
-      </div>
-      <div class="rs">
-        <span class="s"><span class="dot" style="background:#70b8d0;"></span>D1-D3 阿塞拜疆</span>
-        <span>→</span>
-        <span class="s"><span class="dot" style="background:#7ec8a0;"></span>D4-D9 格鲁吉亚</span>
-        <span>→</span>
-        <span class="s"><span class="dot" style="background:#f0a070;"></span>D10-D14 亚美尼亚</span>
-      </div>
-      <div class="mapc" style="max-height:420px;"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="background:#f7f3ea;">
+  <div class="mapc"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="background:#f7f3ea;">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
       <circle cx="10" cy="10" r="1" fill="#e0d8cc" opacity=".25"/>
@@ -168,11 +113,6 @@
     M 345 470 L 375 430
     M 375 430 L 300 380
   " stroke="url(#g-route)" stroke-width="3" fill="none" class="route-line" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-  <!-- 进出高加索 -->
-  <path d="M 350 -20 L 600 340 M 330 230 L 380 -20" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6 4" opacity=".55"/>
-  <text x="350" y="-30" font-size="11" fill="#888" text-anchor="middle" font-weight="500">✈️ 上海</text>
-  <text x="332" y="15" font-size="8" fill="#aaa" text-anchor="start">9.30 返程</text>
-  <text x="605" y="325" font-size="8" fill="#aaa" text-anchor="end">9.19 抵达</text>
 
   <g>
       <circle cx="135" cy="200" r="16" fill="#7ec8a0" stroke="#fff" stroke-width="3"/>
@@ -364,128 +304,7 @@
     <text x="152" y="21" font-size="9" fill="#555">阿塞拜疆</text>
   </g>
 </svg>
-
-      </div>
-      <a class="vml" href="caucasus-map.html" target="_blank">🖼️ 查看全屏地图 →</a>
-    </div>
-    <div class="page">
-      <div class="ptitle">📅 逐日行程</div>
-      <div class="psub"><span>⭐ 14天完整路线</span><span>📍 三国全境</span></div>
-      <div class="dl">
-
-        <div class="di">
-          <div class="dn" style="background:#70b8d0;">17</div>
-          <div class="info">
-            <div class="t">🛫 上海 ✈️ 巴库</div>
-            <div class="d">上海→多哈→巴库</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#70b8d0;">18</div>
-          <div class="info">
-            <div class="t">🌋 巴库·戈布斯坦</div>
-            <div class="d">泥火山群·岩画</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#70b8d0;">19</div>
-          <div class="info">
-            <div class="t">🏰 舍基汗宫</div>
-            <div class="d">古丝路驿站·可汗夏宫</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">20</div>
-          <div class="info">
-            <div class="t">🍷 西格纳吉·红酒</div>
-            <div class="d">跨境入格鲁吉亚·红酒品鉴</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">21</div>
-          <div class="info">
-            <div class="t">🏛️ 第比利斯老城</div>
-            <div class="d">硫磺浴·和平桥·要塞缆车</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">22</div>
-          <div class="info">
-            <div class="t">🏔️ 卡兹别克雪山</div>
-            <div class="d">古多里·圣三一教堂·姆茨赫塔</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">23</div>
-          <div class="info">
-            <div class="t">🏚️ 哥里·斯大林故乡</div>
-            <div class="d">斯大林博物馆</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">24</div>
-          <div class="info">
-            <div class="t">⛪ 库塔伊西</div>
-            <div class="d">巴格拉特教堂·峡谷</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#7ec8a0;">25</div>
-          <div class="info">
-            <div class="t">🌊 巴统·黑海</div>
-            <div class="d">Ali & Nino·欧洲广场</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#f0a070;">26</div>
-          <div class="info">
-            <div class="t">🔄 第比利斯→亚美尼亚</div>
-            <div class="d">萨纳欣/哈巴特→迪利然</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#f0a070;">27</div>
-          <div class="info">
-            <div class="t">💙 塞凡湖</div>
-            <div class="d">塞凡湖·高加索明珠</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#f0a070;">28</div>
-          <div class="info">
-            <div class="t">🏛️ 埃里温</div>
-            <div class="d">共和国广场·Cascade</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#f0a070;">29</div>
-          <div class="info">
-            <div class="t">🏛️ 加尼·格加尔德</div>
-            <div class="d">希腊神殿·岩洞修道院</div>
-          </div>
-        </div>
-        <div class="di">
-          <div class="dn" style="background:#f0a070;">30</div>
-          <div class="info">
-            <div class="t">⛪ 埃奇米阿津·深坑</div>
-            <div class="d">第一座教堂·远眺阿拉拉特山</div>
-          </div>
-        </div>
-      </div>
-      <div class="st">💡 旅行贴士</div>
-      <div style="padding:12px;background:#faf8f5;border-radius:12px;font-size:10px;color:#666;line-height:1.5;">
-        • 签证：阿塞拜疆电子签 / 格鲁吉亚免签 / 亚美尼亚免签<br>
-        • 货币：₼ (AZN) / ₾ (GEL) / ֏ (AMD)<br>
-        • 最佳季节：5-10月，9月秋色正浓
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <span>❤ 4.2k</span>
-    <span>💬 356</span>
-    <span>📌 收藏 3.8k</span>
-    <span>↗️ 分享</span>
-  </div>
+</div>
 </div>
 </body>
 </html>
